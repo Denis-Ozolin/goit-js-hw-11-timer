@@ -1,36 +1,27 @@
 class CountdownTimer{
-  consructor ({selector, targetDate}, onTick){
+  consructor ({selector, targetDate, onTick}){
     this.selector = selector;
-    this.targetDate = targetDate.getTime();
+    this.targetDate = targetDate;
     this.onTick = onTick;
-    this.intervalId = null;
-    this.isActive = false;
+    // this.intervalId = null;
+    // this.isActive = false;
   }
 
   start(){
-    if(this.isActive) return;
-
-    const currentDate = Date.now();
-      this.intervalId = 
+    // if(this.isActive) return;
+    // this.intervalId = 
       setInterval(() => {
-        this.isActive = true;
+        // this.isActive = true;
         console.log(this.targetDate);
-
-        const time = this.targetDate - currentDate;
-        // console.log(time);
         
+        const currentDate = Date.now();
+        const timeInSeconds = this.targetDate.getTime();
+        const time = timeInSeconds - currentDate;
         const componentedTime = this.getTimeComponent(time);
-        // console.log(componentedTime);
-        
         this.onTick(componentedTime).bind(this);
+        console.log(componentedTime);
+        
       }, 1000);
-  }
-
-  stop(){
-    clearInterval(this.intervalId);
-    this.isActive = false;
-    const time = this.getTimeComponent(0);
-    this.onTick(time);
   }
 
   getTimeComponent(time){
@@ -45,6 +36,13 @@ class CountdownTimer{
   pad(value){
     return String(value).padStart(2, '0');
   }
+
+    // stop(){
+  //   clearInterval(this.intervalId);
+  //   this.isActive = false;
+  //   const time = this.getTimeComponent(0);
+  //   this.onTick(time);
+  // }
 }
 
 export default CountdownTimer;    
