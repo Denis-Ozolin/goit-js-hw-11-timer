@@ -1,10 +1,10 @@
 const timerSettings = {
   selector: '#timer-1',
-  targetDate: new Date('Mar 10, 2021'),
+  targetDate: new Date('2021 december 31 20:00'), 
 }
 
 class CountdownTimer{
-  consructor ({selector, targetDate}){
+  constructor ({selector, targetDate}){
     this.selector = selector;
     this.targetDate = targetDate.getTime();
     this.startTimer = this.startTimer.bind(this);
@@ -48,4 +48,4 @@ class CountdownTimer{
 
 const countdownTimer = new CountdownTimer(timerSettings);
 
-// countdownTimer.startTimer();
+countdownTimer.startTimer();
