@@ -3,16 +3,21 @@ const timerSettings = {
   targetDate: new Date('2021 december 31 20:00'), 
 }
 
+const nextTimerSettings = {
+  selector: '#timer-2',
+  targetDate: new Date('2021 mar 12 15:00'), 
+}
+
 class CountdownTimer{
   constructor ({selector, targetDate}){
     this.selector = selector;
     this.targetDate = targetDate.getTime();
-    this.startTimer = this.startTimer.bind(this);
+    this.startTimer();
     this.refs = {
-      days: document.querySelector('[data-value="days"]'),
-      hours: document.querySelector('[data-value="hours"]'),
-      mins: document.querySelector('[data-value="mins"]'),
-      secs: document.querySelector('[data-value="secs"]'),
+      days: document.querySelector(`${this.selector} [data-value="days"]`),
+      hours: document.querySelector(`${this.selector} [data-value="hours"]`),
+      mins: document.querySelector(`${this.selector} [data-value="mins"]`),
+      secs: document.querySelector(`${this.selector} [data-value="secs"]`),
     }
   }
 
@@ -47,5 +52,7 @@ class CountdownTimer{
 }
 
 const countdownTimer = new CountdownTimer(timerSettings);
+const nextCountdownTimer = new CountdownTimer(nextTimerSettings);
 
+nextCountdownTimer.startTimer();
 countdownTimer.startTimer();
