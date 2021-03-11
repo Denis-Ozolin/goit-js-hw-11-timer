@@ -5,7 +5,7 @@ const timerSettings = {
 
 const nextTimerSettings = {
   selector: '#timer-2',
-  targetDate: new Date('2021 mar 12 15:00'), 
+  targetDate: new Date('2021 may 10 00:00'), 
 }
 
 class CountdownTimer{
@@ -54,5 +54,3 @@ class CountdownTimer{
 const countdownTimer = new CountdownTimer(timerSettings);
 const nextCountdownTimer = new CountdownTimer(nextTimerSettings);
 
-nextCountdownTimer.startTimer();
-countdownTimer.startTimer();

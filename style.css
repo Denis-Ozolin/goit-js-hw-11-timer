@@ -27,3 +27,7 @@ body {
 .timer > .field > .value {
   font-size: 50px;
 }
+
+#timer-2{
+  background-color: green;
+}
